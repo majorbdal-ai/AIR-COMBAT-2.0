@@ -57,15 +57,16 @@
 
 ---
 
-## 📂 Project Structure
+## 📂 Source Code Files & Architecture
 
-```text
-AIR-COMBAT-2.0/
-├── index.html        # Main game engine, UI layouts, canvas renderer & logic
-├── sound.js          # Procedural Web Audio API sound generator
-├── manifest.json     # PWA Progressive Web App manifest
-└── sw.js             # Service Worker for offline caching
-```
+The repository is cleanly structured into professional modules:
+
+| File Name | Description & Purpose |
+| :--- | :--- |
+| **`index.html`** | Main game engine, canvas graphics renderer, physics, UI screens, and interactive controls logic. |
+| **`sound.js`** | Procedural Web Audio API sound generator for gunshots, explosions, and UI feedback. |
+| **`manifest.json`** | Progressive Web App (PWA) manifest for app installation and theme configuration. |
+| **`sw.js`** | Service Worker script handling offline caching and resource management. |
 
 ---
 
