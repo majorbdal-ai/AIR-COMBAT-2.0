@@ -2,12 +2,25 @@
 
 [![GitHub Deployment](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)]()
 [![License](https://img.shields.io/badge/License-MIT-blue)]()
+[![Owner](https://img.shields.io/badge/Owner-BCF%20Shamim-orange)]()
 
-**Air Combat 2.0** is an ultra-immersive, high-performance HTML5 Canvas & PWA arcade flight combat game featuring advanced tactical squadron mechanics, military-grade briefing dialogues, custom responsive touch controls, and high-intensity aerial warfare missions.
+> **"Air Combat 2.0"** is an ultra-immersive, high-performance HTML5 Canvas & PWA arcade flight combat game featuring advanced tactical squadron mechanics, military-grade briefing dialogues, custom responsive touch controls, and high-intensity aerial warfare missions. 
 
 ---
 
-## 🎖️ Key Features & Recent Enhancements
+## 🌟 Play Online / Live Demo
+🎮 **Experience the Game Now:** [https://majorbdal-ai.github.io/AIR-COMBAT-2.0/](https://majorbdal-ai.github.io/AIR-COMBAT-2.0/)
+
+---
+
+## 👑 Ownership & Credits
+- **Owner & Creator:** **BCF Shamim**
+- **Project Type:** HTML5 Canvas & Progressive Web App (PWA) 3D Arcade Flight Combat Game
+- **Copyright:** © 2026 BCF Shamim. All rights reserved.
+
+---
+
+## 🎖️ Key Features & Enhancements
 
 ### 1. 🎯 Professional Military Army Squadron Storyline
 - **Tactical Briefings:** Immersive pre-mission commander dialogues styled after elite military air force operations.
@@ -62,4 +75,4 @@ AIR-COMBAT-2.0/
    ```bash
    git clone https://github.com/majorbdal-ai/AIR-COMBAT-2.0.git
    ```
-2. Open `index.html` in any modern web browser or serve via a local static server (e.g., `npx serve` or Python `http.server`).
+2. Open `index.html` in any modern web browser or serve via a local static server.
