@@ -776,48 +776,88 @@ function sfx(t){
 }
 
 // ===================== DATA =====================
-const RANKS=[{n:'Rookie Pilot',xp:0},{n:'Cadet',xp:500},{n:'Lieutenant',xp:1500},{n:'Captain',xp:3000},{n:'Major',xp:5000},{n:'Colonel',xp:8000},{n:'Ace Pilot',xp:12000},{n:'Top Gun',xp:18000}];
-const ACH=[{id:'first',n:'First Blood',ic:'🩸'},{id:'c5',n:'Combo Master',ic:'🔥'},{id:'c10',n:'Unstoppable',ic:'⚡'},{id:'boss',n:'Boss Slayer',ic:'👹'},{id:'nd',n:'Flawless',ic:'🛡️'},{id:'ace',n:'Ace',ic:'🏆'},{id:'rich',n:'Millionaire',ic:'💰'},{id:'wingman',n:'Wingman',ic:'🛩️'}];
+const RANKS=[{n:'প্রবেশিকা পাইলট (Rookie)',xp:0},{n:'ক্যাডেট (Cadet)',xp:500},{n:'লেফটেন্যান্ট (Lieutenant)',xp:1500},{n:'ক্যাপ্টেন (Captain)',xp:3000},{n:'মেজর (Major)',xp:5000},{n:'কর্নেল (Colonel)',xp:8000},{n:'এহ এস পাইলট (Ace Pilot)',xp:12000},{n:'টপ গান (Top Gun)',xp:18000}];
+const ACH=[{id:'first',n:'প্রথম রক্ত (First Blood)',ic:'🩸'},{id:'c5',n:'কম্বো মাস্টার (Combo Master)',ic:'🔥'},{id:'c10',n:'অদম্য (Unstoppable)',ic:'⚡'},{id:'boss',n:'বস্ বধকারী (Boss Slayer)',ic:'👹'},{id:'nd',n:'নির্ভুল (Flawless)',ic:'🛡️'},{id:'ace',n:'এহ এস (Ace)',ic:'🏆'},{id:'rich',n:'কোটিপতি (Millionaire)',ic:'💰'},{id:'wingman',n:'উইংম্যান (Wingman)',ic:'🛩️'}];
 
 const ACS=[
-  {id:'f16',n:'F-16 Falcon',sp:300,hp:100,ar:1,dm:1,fr:1,c:0,co:'#00d4ff',ic:'✈️',d:'Balanced fighter'},
-  {id:'f22',n:'F-22 Raptor',sp:370,hp:115,ar:1.15,dm:1.25,fr:.9,c:3000,co:'#ff4444',ic:'🛩️',d:'Fast & deadly'},
-  {id:'a10',n:'A-10 Warthog',sp:210,hp:190,ar:1.9,dm:1.45,fr:1.1,c:5000,co:'#44ff44',ic:'🚁',d:'Heavy armor tank'},
-  {id:'su57',n:'Su-57 Felon',sp:340,hp:105,ar:1.1,dm:1.35,fr:.85,c:7000,co:'#ffaa00',ic:'🚀',d:'Stealth striker'},
-  {id:'j20',n:'J-20 Dragon',sp:390,hp:125,ar:1.25,dm:1.55,fr:.8,c:10000,co:'#ff00ff',ic:'🛸',d:'Ultimate fighter'}
+  {id:'f16',n:'এফ-১৬ ফ্যালকন (F-16 Falcon)',sp:300,hp:100,ar:1,dm:1,fr:1,c:0,co:'#00d4ff',ic:'✈️',d:'ভারসাম্যপূর্ণ ফাইটার জেট'},
+  {id:'f22',n:'এফ-২২ র‍্যাপ্টর (F-22 Raptor)',sp:370,hp:115,ar:1.15,dm:1.25,fr:.9,c:3000,co:'#ff4444',ic:'🛩️',d:'অত্যন্ত দ্রুতগামী ও ঘাতক'},
+  {id:'a10',n:'এ-১০ ওয়ারহগ (A-10 Warthog)',sp:210,hp:190,ar:1.9,dm:1.45,fr:1.1,c:5000,co:'#44ff44',ic:'🚁',d:'ভারী আর্মার ট্যাঙ্ক জেট'},
+  {id:'su57',n:'সু-৫৭ ফেলন (Su-57 Felon)',sp:340,hp:105,ar:1.1,dm:1.35,fr:.85,c:7000,co:'#ffaa00',ic:'🚀',d:'স্টিলথ আক্রমণকারী জেট'},
+  {id:'j20',n:'জে-২০ ড্রাগন (J-20 Dragon)',sp:390,hp:125,ar:1.25,dm:1.55,fr:.8,c:10000,co:'#ff00ff',ic:'🛸',d:'সর্বোচ্চ ক্ষমতার ড্রাগন জেট'}
 ];
 
 function genLvl(id){
-  const names=['Desert Storm','Night Raid','Thunder Run','Ocean Patrol','Final Assault','Arctic Edge','Volcano Siege','Sky Fortress','Deep Strike','Apocalypse','Shadow Zone','Iron Wall','Red Dawn','Black Ops','Steel Rain','Fire Storm','Ghost Protocol','Zero Hour','End Game','Last Stand','Death Valley','Iron Curtain','Nightfall','Breakthrough','Counter Strike','Air Superiority','Hellfire','Phantom Strike','Warpath','Doomsday','Ragnarok','Armageddon','Extinction','Oblivion','Cataclysm','Annihilation','Devastation','Ruin','Decay','Collapse','Fallout','Aftermath','Wasteland','Badlands','Frontier','Outpost','Bastion','Citadel','Stronghold','Fortress','Castle','Keep','Tower','Spire','Pinnacle','Summit','Zenith','Apex','Crown','Throne','Dominion','Empire','Dynasty','Legacy','Eternity','Infinity','Beyond','Horizon','Frontier','Edge','Limit','Boundary','Threshold','Gate','Portal','Nexus','Core','Heart','Soul','Spirit','Essence','Origin','Genesis','Dawn','Rise','Ascent','Climb','Peak','Crest','Crown','Cap','Tip','Top','Vertex','Apex','Acme','Pinnacle','Summit','Zenith'];
+  const names=['অপারেশন ডেজার্ট স্টর্ম','নাইট রেইড প্রটোকল','থান্ডার রান আক্রমণ','ওশান প্যাট্রোল স্কোয়াড্রন','ফাইনাল অ্যাসাল্ট','আর্কটিক এজ ডিফেন্স','ভলকান সিজ','স্কাই ফোর্ট্রেস','ডিপ স্ট্রাইক','অ্যাপোক্যালিপস ওয়ার','শ্যাডো জোন','আয়রন ওয়াল ডিফেন্স','রেড ডন','ব্ল্যাক অপ্স অপারেশন','স্টিল রেইন','ফায়ার স্টর্ম','প্রোটোকল জিরো','জিরো আওয়ার','এন্ড গেম','লাস্ট স্ট্যান্ড','ডেথ ভ্যালি','আয়রন কার্টেন','নাইটফল অপারেশন','ব্রেকথ্রু','কাউন্টার স্ট্রাইক','এয়ার সুপিরিয়রিটি','হেলফায়ার','ফ্যান্টম স্ট্রাইক','ওয়ারপাথ','ডুমসডে'];
   const weathers=['clear','storm','cloudy','fog'];
   const times=['day','night','sunset','dawn'];
   const dlgs=['intro','night','thunder','ocean','final','arctic','volcano','fortress','deep','apocalypse'];
-  const w=Math.min(3+Math.floor((id-1)/3),15);
-  const epw=4+Math.floor((id-1)*.8);
-  const gr=Math.min(2+Math.floor((id-1)/2),12);
-  const boss=id%5===0||id%7===0||id>=15;
+  const w=Math.min(4+Math.floor((id-1)/2),25);
+  const epw=8+Math.floor((id-1)*1.5);
+  const gr=Math.min(3+Math.floor((id-1)/2),18);
+  const boss=id%3===0||id%5===0||id>=10;
   const wx=weathers[id%weathers.length];
   const tm=times[id%times.length];
   const dlg=dlgs[id%dlgs.length];
-  const n=names[(id-1)%names.length]+(id>10?' '+id:'');
+  const n=names[(id-1)%names.length]+(id>10?' '+(id*2-12):'');
   return{id,n,w,epw,gr,boss,wx,tm,dlg};
 }
 const LVLS=[];
 for(let i=1;i<=100;i++)LVLS.push(genLvl(i));
 
 function genDlg(id){
-  const intros=["তুমি অবশেষে চলে এসেছো, Pilot।","আমাদের অবস্থা ভালো না। Enemy বাহিনী আমাদের আকাশসীমা দখল করার চেষ্টা করছে।","তোমার সাথে ৩টি Support Aircraft প্রস্তুত আছে। তারা তোমার formation-এ থাকবে।","তোমাকে এখনই Mission শুরু করতে হবে। সাবধান, তারা সবদিক থেকে আক্রমণ করবে!","Good luck, Pilot। আমরা তোমার পেছনে আছি।"];
-  const nights=["রাতের মিশন, Pilot। Radar-এর উপর নির্ভর করতে হবে।","Enemy stealth aircraft সক্রিয় হয়েছে। সতর্ক থাকো।","তোমার wingmen তোমার পাশে আছে। একসাথে কাজ করো।"];
-  const thunders=["বজ্রপাতের মধ্যে মিশন। Visibility কম, কিন্তু Enemy-ও কম দেখতে পাবে।","এই মিশনে একটি Boss আছে। Multi-phase attack pattern ব্যবহার করে।","তোমার special weapon ব্যবহার করতে দ্বিধা করো না।"];
-  const oceans=["Ocean patrol মিশন। Water surface-এর উপর দিয়ে উড়তে হবে।","Ground targets আছে — tanks এবং bunkers। সব ধ্বংস করো।","Fuel সাবধানে ব্যবহার করো। দীর্ঘ মিশন।"];
-  const finals=["এটি সবশেষ মিশন, Pilot। সব কিছু দিয়ে লড়ো।","Enemy-এর main base আক্রমণ করতে হবে। সবচেয়ে শক্তিশালী Boss আছে।","তুমি পারবে। আমরা তোমার বিজয়ের অপেক্ষায় আছি!"];
-  const arctics=["Arctic মিশন, Pilot। তুষারপাত এবং কম তাপমাত্রায় engine performance কমতে পারে।","Enemy convoy সনাক্ত হয়েছে। তাদের supply line কেটে দাও।","তোমার fuel line ফ্রিজ হতে পারে — সাবধানে উড়ো।"];
-  const volcanos=["Volcano-এর পাশ দিয়ে মিশন। Ash cloud visibility কমিয়ে দেবে।","Lava flow দেখতে পাবে — সেই দিকে যেও না।","এই Boss-টি fire-based attack ব্যবহার করে। Shield ব্যবহার করো।"];
-  const fortresses=["Sky Fortress — Enemy-এর সবচেয়ে শক্তিশালী defense installation।","Turret এবং missile battery সবদিকে।","Boss-টি fortress-এর মধ্যে লুকিয়ে আছে। সব defense ধ্বংস করো।"];
-  const deeps=["Deep behind enemy lines। কোনো backup নেই।","Radar jamming সক্রিয়। তোমাকে visually target করতে হবে।","Stealth mode-এ উড়ো। Detection হলে সব enemy আক্রমণ করবে।"];
-  const apocalypses=["এটি শেষ মিশন, Pilot। সব কিছুর শেষ।","Enemy-এর superweapon ধ্বংস করতে হবে।","তুমি আমাদের শেষ আশা। সব দিয়ে লড়ো!"];
-  const all={intro:intros,night:nights,thunder:thunders,ocean:oceans,final:finals,arctic:arctics,volcano:volcanos,fortress:fortresses,deep:deeps,apocalypse:apocalypses};
-  return all;
+  const intros=[
+    "কমান্ডার বলছি: অভিনন্দন পাইলট! আমাদের এয়ার ফোর্সের সুসংহত আর্মি স্কোয়াড্রন চূড়ান্ত কমব্যাট অপারেশনের জন্য প্রস্তুত।",
+    "গোয়েন্দা রিপোর্ট অনুযায়ী, শত্রু বাহিনী আমাদের আকাশসীমা এবং সামরিক ঘাঁটিগুলোতে বিশাল আক্রমণ চালানোর প্রস্তুতি নিচ্ছে।",
+    "আপনার নেতৃত্বে ৩টি এলিট সাপোর্ট আর্মি এয়ারক্রাফট সবসময় আপনার উইংয়ে থাকবে। ফায়ার পাওয়ার ও ডিফেন্স বাড়িয়ে শত্রু বাহিনীকে নিশ্চিহ্ন করুন।",
+    "এটি সাধারণ কোনো মহড়া নয়, এটি আমাদের সার্বভৌমত্ব রক্ষার পূর্ণাঙ্গ যুদ্ধ! অস্ত্রশস্ত্র চেক করুন এবং স্কোয়াড্রন এগিয়ে নিন।"
+  ];
+  const nights=[
+    "রাত নেমেছে, রাডার এবং নাইট ভিশন সিস্টেম সম্পূর্ণ চালু রাখুন। শত্রু স্কোয়াড্রন অন্ধকারের সুযোগ নিতে পারে।",
+    "আর্মি গ্রাউন্ড ফোর্সের সিগন্যাল পাওয়া গেছে — শত্রুর কনভয় পাহাড়ি উপত্যকা পার হচ্ছে। অতর্কিত হামলা চালান।",
+    "উইংম্যানদের সাথে যোগাযোগ বজায় রাখুন। একজন একা ফাইটার কখনোই শক্তিশালী আর্মি স্কোয়াড্রনকে হারাতে পারে না।"
+  ];
+  const thunders=[
+    "ভারী বজ্রপাত ও ঝড়ো হাওয়া! দৃশ্যমানতা কম, তবে আমাদের রাডার সিস্টেমে শত্রুর অবস্থান পরিষ্কার।",
+    "সামনে শক্তিশালী শত্রু বসের মুখোমুখি হতে হবে। তার মাল্টি-ফেইজ আক্রমণ প্যাটার্ন সম্পর্কে সতর্ক থাকুন।",
+    "বিশেষ লেসার ও মিসাইল সিস্টেম ব্যবহার করে শত্রুর ডিফেন্স লাইন ভেঙে গুঁড়িয়ে দিন!"
+  ];
+  const oceans=[
+    "নৌ-সীমান্ত এলাকা: নিচে শত্রু যুদ্ধজাহাজ ও উপকূলীয় ব্যাটারি রয়েছে। আকাশ ও জলপথের যৌথ আক্রমণ শুরু করুন।",
+    "গ্রাউন্ড ডিফেন্স ও অ্যান্টি-এয়ারক্রাফট গানগুলো অত্যন্ত বিপজ্জনক। বোমা বর্ষণ করে তাদের টার্গেট ধ্বংস করুন।",
+    "জ্বালানি খরচ সীমিত রাখুন এবং প্রতিটি গ্রাউন্ড টার্গেট নিখুঁতভাবে হিট করুন।"
+  ];
+  const finals=[
+    "চূড়ান্ত মিশন, পাইলট! এটি আমাদের ইতিহাসের সবচেয়ে বড় এয়ার কমব্যাট অপারেশন।",
+    "শত্রুর মূল স্কোয়াড্রন হেডকোয়ার্টার এবং সুপার-ওয়েপন ধ্বংস করতে হবে। দেশের মানুষ আপনার দিকে তাকিয়ে আছে!",
+    "জয় কিংবা মৃত্যু — পিছু হটার কোনো সুযোগ নেই! অল আউট অ্যাটাক শুরু করুন!"
+  ];
+  const arctics=[
+    "তুষারাবৃত আর্কটিক অঞ্চল: চরম ঠান্ডা ও বরফঝড়ে ইঞ্জিনের কার্যক্ষমতা কমে যেতে পারে।",
+    "শত্রুর সাপ্লাই লাইন পুরোপুরি বিচ্ছিন্ন করতে হবে। কোনো শত্রু যেন পালিয়ে যেতে না পারে।",
+    "আপনার আর্মার এবং শিল্ড জেনারেটর সবসময় ফুল চার্জ রাখুন।"
+  ];
+  const volcanos=[
+    "অগ্নুৎপাতপূর্ণ ভলকান জোন: বাতাসে ছাই ও উত্তপ্ত লাভা ক্লাউড আপনার গতি কমিয়ে দিতে পারে।",
+    "শত্রু বাহিনী এই দুর্গম এলাকায় তাদের সবচেয়ে শক্তিশালী পরীক্ষামূলক অস্ত্র তৈরি করছে।",
+    "বসের ফায়ার-বেস আক্রমণ থেকে বাঁচতে ব্যারেল রোল (R) এবং বুস্ট (B) ব্যবহার করুন।"
+  ];
+  const fortresses=[
+    "শত্রুর দুর্ভেদ্য স্কাই ফোর্ট্রেস! হাজার হাজার অ্যান্টি-এয়ারক্রাফট মিসাইল এবং লেসার ডিফেন্স চারদিকে।",
+    "দুর্গের মূল কন্ট্রোল রুম ধ্বংস করলেই তাদের পুরো কমিউনিকেশন নেটওয়ার্ক ভেঙে পড়বে।",
+    "আপনার উইংম্যানদের কমান্ড দিয়ে ফোকাস ফায়ার করুন!"
+  ];
+  const deeps=[
+    "শত্রু সীমানার গভীরে ডিপ স্ট্রাইক অপারেশন। কোনো ব্যাকআপ বা রিইনফোর্সমেন্ট পাওয়া যাবে না।",
+    "সম্পূর্ণ স্টিলথ ও নিখুঁত লক্ষ্যভেদে শত্রুর কমান্ড সেন্টার গুঁড়িয়ে দিন।",
+    "সতর্ক থাকুন, প্রতি মুহূর্তে শত্রু এমবুশ করতে পারে!"
+  ];
+  const apocalypses=[
+    "অ্যাপোক্যালিপস প্রটোকল চালিত হয়েছে! মহাপ্রলয়ের এই যুদ্ধে হয় আমরা জিতব, নয়তো পৃথিবী ধ্বংস হয়ে যাবে।",
+    "সর্বোচ্চ ক্ষমতার এনার্জি শিল্ড ও লেসার গান সক্রিয় করুন।",
+    "ইতিহাসের পাতায় আপনার নাম স্বর্ণাক্ষরে লেখা থাকবে, পাইলট! আক্রমণ শুরু করুন!"
+  ];
+  return {intro:intros,night:nights,thunder:thunders,ocean:oceans,final:finals,arctic:arctics,volcano:volcanos,fortress:fortresses,deep:deeps,apocalypse:apocalypses};
 }
 const DLG=genDlg();
 
