@@ -2065,20 +2065,25 @@ function updHud(){
   if(cb>1){cm.textContent=cb+'x COMBO!';const wrap=document.getElementById('comboBarWrap');wrap.classList.add('on');document.getElementById('comboBar').style.width=((3-cbT)/3*100)+'%';}
   else{cm.textContent='';document.getElementById('comboBarWrap').classList.remove('on');}
 
-  // Radar dots
-  const rd=document.getElementById('radarDots');rd.innerHTML='';
+  // Radar dots (optimized: pooled, no innerHTML rebuild each frame)
+  const rd=document.getElementById('radarDots');
   const rw=110,rh=110;
+  const maxDots=EN.length+(bs?1:0);
+  while(rd.childElementCount<maxDots){const d=document.createElement('div');rd.appendChild(d);}
+  while(rd.childElementCount>maxDots)rd.removeChild(rd.lastChild);
+  let di=0;
   EN.forEach(e=>{
     const dx=(e.x-P.x)/W*rw,dy=(e.y-P.y)/H*rh;
-    if(Math.hypot(dx,dy)<rw/2){
-      const d=document.createElement('div');d.className='rDot en';
-      d.style.left=(rw/2+dx)+'px';d.style.top=(rh/2+dy)+'px';rd.appendChild(d);
-    }
+    const d=rd.childNodes[di++];
+    d.className='rDot en';
+    if(Math.hypot(dx,dy)<rw/2){d.style.display='block';d.style.left=(rw/2+dx)+'px';d.style.top=(rh/2+dy)+'px';}
+    else d.style.display='none';
   });
   if(bs){
     const dx=(bs.x-P.x)/W*rw,dy=(bs.y-P.y)/H*rh;
-    const d=document.createElement('div');d.className='rDot bs';
-    d.style.left=(rw/2+dx)+'px';d.style.top=(rh/2+dy)+'px';rd.appendChild(d);
+    const d=rd.childNodes[di++];
+    d.className='rDot bs';d.style.display='block';
+    d.style.left=(rw/2+dx)+'px';d.style.top=(rh/2+dy)+'px';
   }
 }
 
