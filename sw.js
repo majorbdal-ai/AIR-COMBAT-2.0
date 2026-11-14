@@ -1,5 +1,5 @@
-const CACHE_NAME='air-combat-v1';
-const urlsToCache=['./','./index.html'];
+const CACHE_NAME='air-combat-v2';
+const urlsToCache=['./','./index.html','./manifest.json'];
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(urlsToCache)));
 });
