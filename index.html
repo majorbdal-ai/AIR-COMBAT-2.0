@@ -1450,18 +1450,18 @@ function drawAcPrev(){
   drawJetShape(acCtx,130,90,0,ac.co,2.2);
 }
 function tryBuyAc(ac){
-  if(S.coins>=ac.c){S.coins-=ac.c;if(S.coins>=10000)unlock('rich');S.unlockedAc.push(ac.id);save();renderAc();floatTxt(W/2,H/2,'🔓 Unlocked!','#00ff88');}
-  else floatTxt(W/2,H/2,'❌ Need '+ac.c,'#ff3344');
+  if(S.coins>=ac.c){S.coins-=ac.c;if(S.coins>=10000)unlock('rich');S.unlockedAc.push(ac.id);save();renderAc();showToast('🔓 Unlocked!');}
+  else showToast('❌ Need '+ac.c);
 }
 document.getElementById('btnAcSelect').addEventListener('click',()=>showScr('menu'));
 document.getElementById('btnAcUpg').addEventListener('click',()=>{
   const ac=ACS.find(a=>a.id===selAc);
   const up=S.acUpg[ac.id]||{sp:0,hp:0,ar:0,dm:0};
   const cost=400*(up.sp+up.hp+up.ar+up.dm+1);
-  if(S.coins<cost){floatTxt(W/2,H/2,'❌ Need '+cost,'#ff3344');return;}
+  if(S.coins<cost){showToast('❌ Need '+cost);return;}
   const stats=['sp','hp','ar','dm'];const st=stats[Math.floor(Math.random()*stats.length)];
   up[st]++;S.acUpg[ac.id]=up;S.coins-=cost;if(S.coins>=10000)unlock('rich');save();renderAc();
-  floatTxt(W/2,H/2,'⬆️ '+st.toUpperCase()+' +1','#ffaa00');
+  showToast('⬆️ '+st.toUpperCase()+' +1');
 });
 
 // ===================== LEVEL SELECT =====================
@@ -1512,9 +1512,9 @@ function renderShop(){
     d.className='shopCard';
     d.innerHTML=`<div style="font-size:2.2rem;margin-bottom:6px">${it.ic}</div><div style="color:var(--gold);font-family:var(--font-title);font-weight:bold;font-size:.95rem;margin-bottom:8px">${it.n}</div><button class="btn gold" style="min-width:110px;padding:8px;font-size:.8rem">${it.c?('💰 '+it.c):('Watch Ad 📺')}</button>`;
     d.querySelector('button').addEventListener('click',()=>{
-      if(it.id==='coin'){S.coins+=500;if(S.coins>=10000)unlock('rich');save();renderShop();floatTxt(W/2,H/2,'+500 Coins!','var(--gold)');}
-      else if(S.coins>=it.c){S.coins-=it.c;S['shop_'+it.id]=(S['shop_'+it.id]||0)+1;save();renderShop();floatTxt(W/2,H/2,it.n,'var(--green)');}
-      else floatTxt(W/2,H/2,'Need '+it.c,'var(--red)');
+      if(it.id==='coin'){S.coins+=500;if(S.coins>=10000)unlock('rich');save();renderShop();showToast('+500 Coins!');}
+      else if(S.coins>=it.c){S.coins-=it.c;S['shop_'+it.id]=(S['shop_'+it.id]||0)+1;save();renderShop();showToast(it.n);}
+      else showToast('Need '+it.c);
     });
     el.appendChild(d);
   });
