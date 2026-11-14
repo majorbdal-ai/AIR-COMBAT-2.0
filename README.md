@@ -8,7 +8,29 @@
 
 ---
 
-## 🌟 Play Online / Live Demo
+## 🚀 What's New (v2.0 Enhanced)
+
+### 🎯 Control & Mobile Experience
+- **Haptic Feedback:** Phone vibration on all touch actions
+- **Mobile Weapon Switch:** Dedicated button to cycle weapons (WPN: 1)
+- **Adjustable Button Size:** 1x/1.5x/2x toggle in Settings
+- **Responsive Joystick:** Sensitivity control (CFG.sense)
+
+### ⚡ Visual & Audio Upgrades
+- **Enhanced Explosions:** Smoke, sparks, shockwave ring with haptic feedback
+- **Particle System:** Optimized with shockwave effect and debris
+- **Better Sound:** Procedural Web Audio API for new effects
+
+### 🎖️ New Gameplay Features
+- **Power-Ups:** Rapid Fire, Shield, Quad Damage, Health Pack drops
+- **New Enemies:** Kamikaze, Sniper, Swarm formations
+- **Boss Patterns:** Missile Barrage, Laser Sweep, Drone Summon
+- **Weather System:** Rain, Snow, Lightning effects per mission
+
+### 🛠️ Technical Improvements
+- **Canvas Optimization:** Better particle management (max 120)
+- **PWA Ready:** Service worker and offline support
+- **Cross-Platform:** Desktop + Mobile responsive
 🎮 **Experience the Game Now:** [https://majorbdal-ai.github.io/AIR-COMBAT-2.0/](https://majorbdal-ai.github.io/AIR-COMBAT-2.0/)
 
 ---
