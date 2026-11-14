@@ -1742,7 +1742,9 @@ function updP(dt){
   P.x+=dx*dt;P.y+=dy*dt;P.x=Math.max(16,Math.min(W-16,P.x));P.y=Math.max(35,Math.min(H-35,P.y));
   if(bst)P.fuel-=10*dt;else P.fuel-=1.2*dt;P.fuel=Math.max(0,P.fuel);if(P.fuel<=0)bst=false;
   if(P.inv>0)P.inv-=dt;if(P.shd>0)P.shd-=dt;if(P.rap>0)P.rap-=dt;if(P.dmg>0)P.dmg-=dt;
-  P.tr.push({x:P.x,y:P.y+16,life:.35,co:(ACS.find(a=>a.id===selAc)||{co:'#00d4ff'}).co});
+  P.tr.push({x:P.x,y:P.y+16,life:.35,mxLife:.35,co:(ACS.find(a=>a.id===selAc)||{co:'#00d4ff'}).co});
+  P.tr=P.tr.filter(t=>(t.life-=dt)>0);
+  if(P.tr.length>60)P.tr.splice(0,P.tr.length-60);
   if(brl){brT+=dt*5;if(brT>Math.PI*2){brl=false;brT=0;}}
 }
 
