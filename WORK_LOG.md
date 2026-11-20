@@ -203,3 +203,10 @@ but fails with: "error while loading shared libraries: libglib-2.0.so.0: cannot 
 ### Attempt 2: system package install (planned next)
 Note: system-wide installs need user permission per WORKSPACE_RULES; attempting
 project-local/alternate approaches first.
+
+## PERMANENT ACCEPTANCE NOTES (2026-11-15)
+- Phase 1 VERIFIED / Phase 2 PARTIAL / Phase 3 PASS (planning only)
+- Planning ≠ operational mastery; fresh recall unverified
+- Authorized repos only; no installs without authorization
+- AIR-COMBAT-2.0 FROZEN: HEAD=origin/main=b467989, working tree clean
+- MEMORY.md at 99% (2196/2200); no knowledge deleted, duplicates consolidated only
